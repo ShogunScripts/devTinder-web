@@ -1,43 +1,29 @@
 import { useState } from 'react'
-
+// import NavBar from './NavBar'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Body from './components/Body'
+import Login from './components/Login'
+import Profile from './components/Profile'
+import { Provider } from 'react-redux'
+import appStore from './utils/appStore'
+import Feed from './components/Feed'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-      <div className="navbar bg-base-300 shadow-sm">
-        <div className="flex-1">
-          <a className="btn btn-ghost text-xl">🧑‍💻 DevTinder</a>
-        </div>
-        <div className="flex gap-2">
-          
-          <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar mx-5">
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-              </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li><a>Settings</a></li>
-              <li><a>Logout</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-
-      <h1 class="text-3xl font-bold underline">Hello Ji Namaste!</h1>
+      <Provider store={appStore}>
+        <BrowserRouter basename='/'>
+          <Routes>
+            <Route path="/" element={<Body/>}>   {/*creating various routes inside this route*/}
+              <Route path="/" element={<Feed />} />         {/* children routes */}
+              <Route path="/login" element={<Login />} />         {/* children routes */}
+              <Route path="/profile" element={<Profile />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Provider>
     </>
   )
 }
