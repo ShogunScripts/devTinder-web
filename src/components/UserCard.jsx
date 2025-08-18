@@ -28,8 +28,8 @@ const UserCard = ({user}) => {
                     {age && gender && <p>{age+", "+gender}</p>}
                     <p>{"Skills : "+skills}</p>
                     <div className="card-actions justify-center mt-auto mb-2 space-x-2">
-                        <button className="btn btn-soft btn-primary">Accept</button>
-                        <button className="btn btn-soft btn-secondary">Deny</button>
+                        <button className="btn btn-soft btn-primary">Interested</button>
+                        <button className="btn btn-soft btn-secondary">Reject</button>
                     </div>
                 </div>
             </div>
