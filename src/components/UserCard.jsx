@@ -29,7 +29,7 @@ const UserCard = ({user}) => {
                     <p>{"Skills : "+skills}</p>
                     <div className="card-actions justify-center mt-auto mb-2 space-x-2">
                         <button className="btn btn-soft btn-primary">Interested</button>
-                        <button className="btn btn-soft btn-secondary">Reject</button>
+                        <button className="btn btn-soft btn-secondary">Ignore</button>
                     </div>
                 </div>
             </div>
