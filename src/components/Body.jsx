@@ -12,14 +12,8 @@ const Body = () => {
     const navigate = useNavigate()
     const userData = useSelector((store) => store.user)
 
-    // const [loading, setLoading] = useState(true);
-
     
     const fetchUser = async () => {
-        // if (userData && Object.keys(userData).length > 0) {  //if userdata is present in store, dont make the following fetch API call
-        //   setLoading(false);
-        //   return;
-        // }
 
         if(userData)    return;
 
@@ -28,21 +22,16 @@ const Body = () => {
                 withCredentials : true,
             })
             dispatch(addUser(res.data))
-            // setLoading(false);
         } catch (err) {
             if(err.response?.status === 401){
                 navigate("/login", { replace: true })
             }else {
                 console.error(err);
             }
-            // setLoading(false);
         }
 
     }
 
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    // }
     
     useEffect(() => {
         fetchUser();
