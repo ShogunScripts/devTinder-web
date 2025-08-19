@@ -11,7 +11,7 @@ const Requests = () => {
     const reviewRequest = async (status, _id) => {
         try {
             const res = axios.post(BASE_URL+"/review/request/"+status+"/"+_id,
-                {},
+                {},   //in 2nd parameter of post call we send data, here we dont have any thus empty object
                 {withCredentials : true}
             )
             dispatch(removeRequest(_id))
@@ -39,7 +39,7 @@ const Requests = () => {
 
     if(!requests)    return;
 
-    if(requests.length === 0)   return <h1 className="flex justify-center my-10">No request found.</h1>
+    if(requests.length === 0)   return <h1 className="text-center font-bold">No request found.</h1>
 
     return (
         <div className="text-center my-10">

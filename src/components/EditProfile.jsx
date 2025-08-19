@@ -100,7 +100,7 @@ const EditProfile = ({user}) => {
                                 type="text"
                                 value={gender} 
                                 className="input" 
-                                placeholder="Age"
+                                placeholder="Gender"
                                 onChange={(e) => setGender(e.target.value)}
                             />
                         </fieldset>
